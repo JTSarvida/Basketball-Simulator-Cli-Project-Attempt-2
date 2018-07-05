@@ -7,6 +7,7 @@ CLI Gem Project - Basketball
   -Realized that one thing that's different from this and the previous scraping labs I've done is that I need to also collect individual urls for each player page. Going to figure out how to do that by googling.
   -current scraper method to collect the nba players urls isn't working.  Tried debugging but pry and just placing puts throughout the method did nothing.  Trying to figure out whats wrong.
   -Decided to redo the project on, this time making sure to follow Avi's procedure of stubbing things out, last attempt the project was breaking in several parts.
+  -Honestly, it's definitely more encouraging to see working code, even if it is stubbed in rather than using actual logic.
   
 -A command line interface that allows you to pick two teams of five and see which team would "win" in a contest.  Once there is a winner, the user is able to play against the winning team by selecting a new team of five.  Also make sure that in this command line interface, you are able to see what are the player's stats.  This uses Basketball Reference
 

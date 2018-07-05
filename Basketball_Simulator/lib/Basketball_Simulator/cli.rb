@@ -17,7 +17,6 @@ class BasketballSimulator::CLI
         input = gets.strip.downcase
         if input.to_i == 1
             single_player
-            goodbye
         elsif input.to_i == 2
             game
             goodbye
@@ -31,20 +30,39 @@ class BasketballSimulator::CLI
 
     def single_player
         input = nil
-        input2 = nil
         @players = BasketballSimulator::Player.allplayers
         puts "What player would you like to see? Please be very accurate with spelling and hiphens, etc."
         input = gets.strip.downcase
-        @players.each do |player|
-            if player.name.downcase == input
-                break if player.name.downcase != input 
-                puts "Name: #{player.name}", "Height and Weight: #{player.height_and_weight}", "Team: #{player.team}", "Birthday/Birthplace: #{player.birthday_birthplace}", "Points per Game: #{player.points}", "Rebounds per Game: #{player.rebounds}", "Assists per Game: #{player.assists}", "Steals per Game: #{player.steals}", "Blocks per Game: #{player.blocks}", "Field Goal %: #{player.fg}", "3 Point %: #{player.threept}", "Free Throw %: #{player.ft}"
-            end
-        end
         if input == "exit"
             goodbye
+        end
+        # @players.each do |player|
+        #     if player.name.downcase == input
+        #         puts "Name: #{player.name}", "Height and Weight: #{player.height_and_weight}", "Team: #{player.team}", "Birthday/Birthplace: #{player.birthday_birthplace}", "Points per Game: #{player.points}", "Rebounds per Game: #{player.rebounds}", "Assists per Game: #{player.assists}", "Steals per Game: #{player.steals}", "Blocks per Game: #{player.blocks}", "Field Goal %: #{player.fg}", "3 Point %: #{player.threept}", "Free Throw %: #{player.ft}"
+        #         goodbye
+        #     else
+        #         single_player_mistake
+        #     end
+        # end
+        @chosen_player = @players.detect {|player| player.name.downcase == input}
+        if @chosen_player
+            puts "Name: #{@chosen_player.name}", "Height and Weight: #{@chosen_player.height_and_weight}", "Team: #{@chosen_player.team}", "Birthday/Birthplace: #{@chosen_player.birthday_birthplace}", "Points per Game: #{@chosen_player.points}", "Rebounds per Game: #{@chosen_player.rebounds}", "Assists per Game: #{@chosen_player.assists}", "Steals per Game: #{@chosen_player.steals}", "Blocks per Game: #{@chosen_player.blocks}", "Field Goal %: #{@chosen_player.fg}", "3 Point %: #{@chosen_player.threept}", "Free Throw %: #{@chosen_player.ft}"
+            goodbye
         else
-            puts "I don't quite understand, let me try again."
+            single_player_mistake
+        end
+    end
+
+    def single_player_mistake
+        input2 = nil
+        puts "Whoops, that didn't work. Would you like to try again?"
+        input2 = gets.strip.downcase
+        if input2 == "y"
+            single_player
+        elsif input2 == "n"
+            puts "Thanks again, have a great day!"
+        else 
+            puts "What did you say? Please be very specific in spelling."
             single_player
         end
     end

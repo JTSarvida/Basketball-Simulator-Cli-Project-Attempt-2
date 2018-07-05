@@ -34,4 +34,5 @@ class BasketballSimulator::Player
         [player_1, player_2]
     end
 
+
 end

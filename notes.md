@@ -1,4 +1,13 @@
 CLI Gem Project - Basketball
+-Requirements
+What is required in a project?
+Each project has a unique set of technical requirements that a student must meet in order to pass. In addition to the project itself, students are required to submit:
+A video walk through describing their project (2-3 minutes)
+A screen capture video of them coding their project.  This is meant to help confirm the students themselves are the ones working on the project.
+An accompanying technical blog post
+These are the checklists students complete to accompany each of the first 3 projects:
+CLI - https://docs.google.com/forms/d/1ItDHkNbtHJP8T2G28Nqc3Ad8MppbPDpqv9AijAOCFDA/edit
+
 -Blog Post Notes
   -Followed Avi's Video on creating a CLI gem.
   -For the longest time, I was stuck trying to use git.  Realized that the problem had to do with my anti-virus software, so I disabled web anti-virus and it proceeded to work again.
@@ -8,6 +17,12 @@ CLI Gem Project - Basketball
   -current scraper method to collect the nba players urls isn't working.  Tried debugging but pry and just placing puts throughout the method did nothing.  Trying to figure out whats wrong.
   -Decided to redo the project on, this time making sure to follow Avi's procedure of stubbing things out, last attempt the project was breaking in several parts.
   -Honestly, it's definitely more encouraging to see working code, even if it is stubbed in rather than using actual logic.
+  -Stuck on the player stats portion of the controller.  Figuring out how to stop the each do loop from going on infinitely.
+  -Discovered the break if condition for loops.  Testing to see if that'll help.
+  -Found out that one main reason it wasn't working was because i forgot to place the input = gets.strip.downcase within the while loop.
+  -Got rid of if statement surrounding other layers of if statements, doesn't break the loop anymore.
+  -Switched out the each do loop for me detecting for the first instance of input equalling a player's name.
+
   
 -A command line interface that allows you to pick two teams of five and see which team would "win" in a contest.  Once there is a winner, the user is able to play against the winning team by selecting a new team of five.  Also make sure that in this command line interface, you are able to see what are the player's stats.  This uses Basketball Reference
 

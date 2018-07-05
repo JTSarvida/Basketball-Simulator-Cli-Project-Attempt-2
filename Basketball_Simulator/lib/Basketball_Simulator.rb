@@ -1,5 +1,2 @@
-require "Basketball_Simulator/version"
-
-module BasketballSimulator
-  # Your code goes here...
-end
+require_relative "Basketball_Simulator/version"
+require_relative "./Basketball_Simulator/cli"

@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require "./lib/Basketball_Simulator"
+BasketballSimulator::CLI.new.call

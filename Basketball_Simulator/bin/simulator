@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+require "bundler/setup"
+require "Basketball_Simulator"
 
-require "./lib/Basketball_Simulator"
+
 BasketballSimulator::CLI.new.call

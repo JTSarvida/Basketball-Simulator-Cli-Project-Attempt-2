@@ -3,7 +3,6 @@ class BasketballSimulator::CLI
     def call
         greeting
         choice
-        goodbye
     end
 
     def greeting
@@ -15,20 +14,39 @@ class BasketballSimulator::CLI
         puts "Are you looking for:",
         "1. A specific player from the 2017-2018 NBA season?",  
         "2. Or would you like to play our basketball game?"
-        while input != "exit"
-            input = gets.strip.downcase
-            if input.to_i == 1
-                player
-            elsif input.to_i == 2
-                game
-            else
-                puts "Please select either 1 or 2 or exit."
-            end
+        input = gets.strip.downcase
+        if input.to_i == 1
+            single_player
+            goodbye
+        elsif input.to_i == 2
+            game
+            goodbye
+        elsif input == "exit"
+            goodbye
+        else
+            puts "Please select either 1 or 2 or exit."
+            choice
         end
     end
 
-    def player
-        puts "What player would you like to see?"
+    def single_player
+        input = nil
+        input2 = nil
+        @players = BasketballSimulator::Player.allplayers
+        puts "What player would you like to see? Please be very accurate with spelling and hiphens, etc."
+        input = gets.strip.downcase
+        @players.each do |player|
+            if player.name.downcase == input
+                break if player.name.downcase != input 
+                puts "Name: #{player.name}", "Height and Weight: #{player.height_and_weight}", "Team: #{player.team}", "Birthday/Birthplace: #{player.birthday_birthplace}", "Points per Game: #{player.points}", "Rebounds per Game: #{player.rebounds}", "Assists per Game: #{player.assists}", "Steals per Game: #{player.steals}", "Blocks per Game: #{player.blocks}", "Field Goal %: #{player.fg}", "3 Point %: #{player.threept}", "Free Throw %: #{player.ft}"
+            end
+        end
+        if input == "exit"
+            goodbye
+        else
+            puts "I don't quite understand, let me try again."
+            single_player
+        end
     end
 
     def game
@@ -48,4 +66,5 @@ class BasketballSimulator::CLI
             goodbye
         end
     end
+
 end

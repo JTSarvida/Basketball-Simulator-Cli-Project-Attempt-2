@@ -36,14 +36,6 @@ class BasketballSimulator::CLI
         if input == "exit"
             goodbye
         end
-        # @players.each do |player|
-        #     if player.name.downcase == input
-        #         puts "Name: #{player.name}", "Height and Weight: #{player.height_and_weight}", "Team: #{player.team}", "Birthday/Birthplace: #{player.birthday_birthplace}", "Points per Game: #{player.points}", "Rebounds per Game: #{player.rebounds}", "Assists per Game: #{player.assists}", "Steals per Game: #{player.steals}", "Blocks per Game: #{player.blocks}", "Field Goal %: #{player.fg}", "3 Point %: #{player.threept}", "Free Throw %: #{player.ft}"
-        #         goodbye
-        #     else
-        #         single_player_mistake
-        #     end
-        # end
         @chosen_player = @players.detect {|player| player.name.downcase == input}
         if @chosen_player
             puts "Name: #{@chosen_player.name}", "Height and Weight: #{@chosen_player.height_and_weight}", "Team: #{@chosen_player.team}", "Birthday/Birthplace: #{@chosen_player.birthday_birthplace}", "Points per Game: #{@chosen_player.points}", "Rebounds per Game: #{@chosen_player.rebounds}", "Assists per Game: #{@chosen_player.assists}", "Steals per Game: #{@chosen_player.steals}", "Blocks per Game: #{@chosen_player.blocks}", "Field Goal %: #{@chosen_player.fg}", "3 Point %: #{@chosen_player.threept}", "Free Throw %: #{@chosen_player.ft}"

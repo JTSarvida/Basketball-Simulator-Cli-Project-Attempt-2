@@ -22,6 +22,8 @@ CLI - https://docs.google.com/forms/d/1ItDHkNbtHJP8T2G28Nqc3Ad8MppbPDpqv9AijAOCF
   -Found out that one main reason it wasn't working was because i forgot to place the input = gets.strip.downcase within the while loop.
   -Got rid of if statement surrounding other layers of if statements, doesn't break the loop anymore.
   -Switched out the each do loop for me detecting for the first instance of input equalling a player's name.
+  -There was a problem initially, but realized that it was due to my lacking of the open uri dependancy/requirement.
+  -Got the scraper working so it will grab the individual links to each players page.
   
 
   

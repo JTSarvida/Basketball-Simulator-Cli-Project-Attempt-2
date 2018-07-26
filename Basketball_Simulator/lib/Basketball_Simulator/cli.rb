@@ -31,7 +31,7 @@ class BasketballSimulator::CLI
     def single_player
         input = nil
         @players = BasketballSimulator::Player.allplayers
-        puts "What player would you like to see? Please be very accurate with spelling and hiphens, etc."
+        puts "What player would you like to see? LastName,FirstName format please."
         input = gets.strip.downcase
         if input == "exit"
             goodbye

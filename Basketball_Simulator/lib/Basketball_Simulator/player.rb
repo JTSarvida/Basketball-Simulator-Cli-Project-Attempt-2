@@ -6,8 +6,8 @@ class BasketballSimulator::Player
 
         doc = Nokogiri::HTML(open("https://www.basketball-reference.com/leagues/NBA_2018_per_game.html"))
 
-        doc.css('.left[data-stat="player"]').each do |player|
-            players << player.css(".player a") 
+        doc.css('.left[data-stat="player"] a').each do |player|
+            players << player['href'] 
         end
         players
 

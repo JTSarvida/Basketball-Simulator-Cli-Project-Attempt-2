@@ -36,7 +36,7 @@ class BasketballSimulator::CLI
         if input == "exit"
             goodbye
         end
-        @chosen_player = @players.detect {|player| player.name.downcase == input}
+        @chosen_player = @players.detect {|player| player.name == input}
         if @chosen_player
             puts "Name: #{@chosen_player.name}", "Height and Weight: #{@chosen_player.height_and_weight}", "Team: #{@chosen_player.team}", "Birthday/Birthplace: #{@chosen_player.birthday_birthplace}", "Points per Game: #{@chosen_player.points}", "Rebounds per Game: #{@chosen_player.rebounds}", "Assists per Game: #{@chosen_player.assists}", "Steals per Game: #{@chosen_player.steals}", "Blocks per Game: #{@chosen_player.blocks}", "Field Goal %: #{@chosen_player.fg}", "3 Point %: #{@chosen_player.threept}", "Free Throw %: #{@chosen_player.ft}"
             goodbye

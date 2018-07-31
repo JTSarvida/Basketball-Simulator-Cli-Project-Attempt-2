@@ -1,6 +1,8 @@
 require_relative "Basketball_Simulator/version"
 require_relative "./Basketball_Simulator/cli"
 require_relative "./Basketball_Simulator/player"
+require_relative "./Basketball_Simulator/scraper"
 require "nokogiri"
 require "pry"
 require "open-uri"
+require "rubygems"

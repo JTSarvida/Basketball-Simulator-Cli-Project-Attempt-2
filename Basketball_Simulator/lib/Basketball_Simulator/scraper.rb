@@ -1,9 +1,5 @@
-class BasketballSimulator::Player
-    attr_accessor :selector_name, :link, :name, :height_and_weight, :team, :birthday_birthplace, :points, :rebounds, :assists, :steals, :blocks, :fg, :threept, :ft
-    
-    def self.allplayers
-
-    end
+class BasketballSimulator::Scraper
+    attr_accessor :selector_name, :link, :name, :height, :weight, :team, :birthday, :birthplace, :points, :trebounds, :orebounds, :drebounds, :assists, :steals, :blocks, :fg, :threept, :ft
 
     def self.allplayersnames
         players = []
@@ -40,15 +36,21 @@ class BasketballSimulator::Player
         players.each do |player|
             doc = Nokogiri::HTML(open(player.link))
             player.name = doc.css('h1[itemprop="name"]').text
-        end
-        players[0]
-        # players = self.allplayer_links
-        # doc = Nokogiri::HTML(open(players[0].link))
-        # players[0].name = doc.css('h1[itemprop="name"]').text
-        # players[0]
-        binding.pry
+            player.height = doc.css('span[itemprop="height"]').text
+            player.weight = doc.css('span[itemprop="weight"]').text
+            player.team = doc.css('.left[data-stat="team_id"] a')[0].text
+            player.birthday = doc.css('span[itemprop="birthDate"]')[0]["data-birth"]
+            player.birthplace = doc.css('span[itemprop="birthPlace"] a')[0].text
+            player.points = doc.css('tr[id="per_game.2018"]').css('.right[data-stat="pts_per_g"]').text
+            player.trebounds = doc.css('tr[id="per_game.2018"]').css('.right[data-stat="trb_per_g"]').text
+            player.orebounds = doc.css('tr[id="per_game.2018"]').css('.right[data-stat="orb_per_g"]').text
+            player.drebounds = doc.css('tr[id="per_game.2018"]').css('.right[data-stat="drb_per_g"]').text
+            player.assists = doc.css('tr[id="per_game.2018"]').css('.right[data-stat="ast_per_g"]').text
+            player.steals = doc.css('tr[id="per_game.2018"]').css('.right[data-stat="stl_per_g"]').text
+            player.blocks = doc.css('tr[id="per_game.2018"]').css('.right[data-stat="blk_per_g"]').text
+            player.fg = doc.css('tr[id="per_game.2018"]').css('.right[data-stat="fg_pct"]').text
+            player.threept = doc.css('tr[id="per_game.2018"]').css('.right[data-stat="fg3_pct"]').text
+            player.ft = doc.css('tr[id="per_game.2018"]').css('.right[data-stat="ft_pct"]').text
+        end 
     end
-
-
-        
 end

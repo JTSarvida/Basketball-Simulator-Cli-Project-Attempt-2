@@ -30,15 +30,15 @@ class BasketballSimulator::CLI
 
     def single_player
         input = nil
-        @players = BasketballSimulator::Player.allplayers
-        puts "What player would you like to see? LastName,FirstName format please."
+        @players = BasketballSimulator::Player.all
+        puts "What player would you like to see?"
         input = gets.strip.downcase
         if input == "exit"
             goodbye
         end
         @chosen_player = @players.detect {|player| player.name == input}
         if @chosen_player
-            puts "Name: #{@chosen_player.name}", "Height and Weight: #{@chosen_player.height_and_weight}", "Team: #{@chosen_player.team}", "Birthday/Birthplace: #{@chosen_player.birthday_birthplace}", "Points per Game: #{@chosen_player.points}", "Rebounds per Game: #{@chosen_player.rebounds}", "Assists per Game: #{@chosen_player.assists}", "Steals per Game: #{@chosen_player.steals}", "Blocks per Game: #{@chosen_player.blocks}", "Field Goal %: #{@chosen_player.fg}", "3 Point %: #{@chosen_player.threept}", "Free Throw %: #{@chosen_player.ft}"
+            puts "Name: #{@chosen_player.name}", "Height: #{@chosen_player.height}", "Weight: #{@chosen_player.weight}", "Team: #{@chosen_player.team}", "Birthday: #{@chosen_player.birthday}", "Birthplace: #{@chosen_player.birthplace}", "Points per Game: #{@chosen_player.points}", "Total Rebounds per Game: #{@chosen_player.trebounds}", "Offensive Rebounds per Game: #{@chosen_player.orebounds}", "Defensive Rebounds per Game: #{@chosen_player.drebounds}", "Assists per Game: #{@chosen_player.assists}", "Steals per Game: #{@chosen_player.steals}", "Blocks per Game: #{@chosen_player.blocks}", "Field Goal %: #{@chosen_player.fg}", "3 Point %: #{@chosen_player.threept}", "Free Throw %: #{@chosen_player.ft}"
             goodbye
         else
             single_player_mistake

@@ -14,5 +14,5 @@ class BasketballSimulator::Player
     def self.all
         @@all
     end
-
+    
 end

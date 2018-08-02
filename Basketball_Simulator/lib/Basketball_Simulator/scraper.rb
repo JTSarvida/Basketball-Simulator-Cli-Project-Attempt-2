@@ -29,8 +29,6 @@ class BasketballSimulator::Scraper
         players
     end
 
-
-
     def self.stats
         players = self.allplayer_links
         players.each do |player|
@@ -51,6 +49,7 @@ class BasketballSimulator::Scraper
             player.fg = doc.css('tr[id="per_game.2018"]').css('.right[data-stat="fg_pct"]').text
             player.threept = doc.css('tr[id="per_game.2018"]').css('.right[data-stat="fg3_pct"]').text
             player.ft = doc.css('tr[id="per_game.2018"]').css('.right[data-stat="ft_pct"]').text
-        end 
+        end
+        players 
     end
 end

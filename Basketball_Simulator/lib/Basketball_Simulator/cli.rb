@@ -16,6 +16,7 @@ class BasketballSimulator::CLI
         "2. Or would you like to play our basketball game?"
         input = gets.strip.downcase
         if input.to_i == 1
+            puts "Please wait while we load up our database."
             single_player
         elsif input.to_i == 2
             game
@@ -30,13 +31,13 @@ class BasketballSimulator::CLI
 
     def single_player
         input = nil
-        @players = BasketballSimulator::Player.all
+        @players = BasketballSimulator::Player.create_players
         puts "What player would you like to see?"
         input = gets.strip.downcase
         if input == "exit"
             goodbye
         end
-        @chosen_player = @players.detect {|player| player.name == input}
+        @chosen_player = @players.detect {|player| player.name.downcase == input}
         if @chosen_player
             puts "Name: #{@chosen_player.name}", "Height: #{@chosen_player.height}", "Weight: #{@chosen_player.weight}", "Team: #{@chosen_player.team}", "Birthday: #{@chosen_player.birthday}", "Birthplace: #{@chosen_player.birthplace}", "Points per Game: #{@chosen_player.points}", "Total Rebounds per Game: #{@chosen_player.trebounds}", "Offensive Rebounds per Game: #{@chosen_player.orebounds}", "Defensive Rebounds per Game: #{@chosen_player.drebounds}", "Assists per Game: #{@chosen_player.assists}", "Steals per Game: #{@chosen_player.steals}", "Blocks per Game: #{@chosen_player.blocks}", "Field Goal %: #{@chosen_player.fg}", "3 Point %: #{@chosen_player.threept}", "Free Throw %: #{@chosen_player.ft}"
             goodbye
@@ -60,8 +61,10 @@ class BasketballSimulator::CLI
     end
 
     def game
-        puts "Please enter 5 player names"
-        puts "Please enter another 5 names"
+        # puts "Please enter 5 player names"
+        # puts "Please enter another 5 names"
+        puts "This feature will be available in a future update."
+        goodbye
     end
 
     def goodbye

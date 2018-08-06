@@ -1,22 +1,34 @@
 class BasketballSimulator::CLI
 
+    def initial_call
+        player_database
+        greeting
+        choice
+    end
+
     def call
         greeting
         choice
     end
 
+    def player_database
+        puts "Please wait while we load up our database."
+        @players = BasketballSimulator::Player.create_players
+    end
+    
     def greeting
         puts "Hello, this is the basketball-simulator using https://www.basketball-reference.com/ to help you with all of your basketball needs! Type exit if you want to quit." 
+        puts ""
     end
 
     def choice
         input = nil
         puts "Are you looking for:",
         "1. A specific player from the 2017-2018 NBA season?",  
-        "2. Or would you like to play our basketball game?"
+        "2. Or would you like to play our basketball game?",
+        ""
         input = gets.strip.downcase
         if input.to_i == 1
-            puts "Please wait while we load up our database."
             single_player
         elsif input.to_i == 2
             game
@@ -31,8 +43,8 @@ class BasketballSimulator::CLI
 
     def single_player
         input = nil
-        @players = BasketballSimulator::Player.create_players
         puts "What player would you like to see?"
+        puts ""
         input = gets.strip.downcase
         if input == "exit"
             goodbye
@@ -49,6 +61,7 @@ class BasketballSimulator::CLI
     def single_player_mistake
         input2 = nil
         puts "Whoops, that didn't work. Would you like to try again?"
+        puts ""
         input2 = gets.strip.downcase
         if input2 == "y"
             single_player
@@ -56,6 +69,7 @@ class BasketballSimulator::CLI
             puts "Thanks again, have a great day!"
         else 
             puts "What did you say? Please be very specific in spelling."
+            puts ""
             single_player
         end
     end
@@ -69,12 +83,16 @@ class BasketballSimulator::CLI
 
     def goodbye
         puts "Thank you for using this application today. Would you like to go again? Y/N?"
+        puts ""
         input = gets.strip.downcase
         if input == "y"
+            puts ""
             call
         elsif input == "n"
+            puts ""
             puts "Thanks again, have a great day!"
         else 
+            puts ""
             puts "What did you say? Please be very specific in spelling."
             goodbye
         end

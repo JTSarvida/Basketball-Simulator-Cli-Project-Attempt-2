@@ -1,5 +1,4 @@
 class BasketballSimulator::Scraper
-    attr_accessor :selector_name, :link, :name, :height, :weight, :team, :birthday, :birthplace, :points, :trebounds, :orebounds, :drebounds, :assists, :steals, :blocks, :fg, :threept, :ft
 
     def self.allplayersnames
         players = []

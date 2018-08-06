@@ -2,5 +2,4 @@
 require "bundler/setup"
 require "Basketball_Simulator"
 
-
-BasketballSimulator::CLI.new.call
+BasketballSimulator::CLI.new.initial_call

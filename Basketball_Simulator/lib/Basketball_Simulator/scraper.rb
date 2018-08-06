@@ -36,7 +36,7 @@ class BasketballSimulator::Scraper
             player.name = doc.css('h1[itemprop="name"]').text
             player.height = doc.css('span[itemprop="height"]').text
             player.weight = doc.css('span[itemprop="weight"]').text
-            player.team = doc.css('.left[data-stat="team_id"] a')[0].text
+            player.team = doc.css('tr[id="per_game.2018"]').css('.left[data-stat="team_id"] a')[0].text
             player.birthday = doc.css('span[itemprop="birthDate"]')[0]["data-birth"]
             player.birthplace = doc.css('span[itemprop="birthPlace"] a')[0].text
             player.points = doc.css('tr[id="per_game.2018"]').css('.right[data-stat="pts_per_g"]').text

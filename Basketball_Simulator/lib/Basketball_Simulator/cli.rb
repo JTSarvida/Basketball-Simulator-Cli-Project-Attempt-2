@@ -14,6 +14,7 @@ class BasketballSimulator::CLI
     def player_database
         puts "Please wait while we load up our database."
         @players = BasketballSimulator::Player.create_players
+        puts ""
     end
     
     def greeting
@@ -43,14 +44,17 @@ class BasketballSimulator::CLI
 
     def single_player
         input = nil
+        puts ""
         puts "What player would you like to see?"
         puts ""
         input = gets.strip.downcase
         if input == "exit"
+            puts ""
             goodbye
         end
         @chosen_player = @players.detect {|player| player.name.downcase == input}
         if @chosen_player
+            puts ""
             puts "Name: #{@chosen_player.name}", "Height: #{@chosen_player.height}", "Weight: #{@chosen_player.weight}", "Team: #{@chosen_player.team}", "Birthday: #{@chosen_player.birthday}", "Birthplace: #{@chosen_player.birthplace}", "Points per Game: #{@chosen_player.points}", "Total Rebounds per Game: #{@chosen_player.trebounds}", "Offensive Rebounds per Game: #{@chosen_player.orebounds}", "Defensive Rebounds per Game: #{@chosen_player.drebounds}", "Assists per Game: #{@chosen_player.assists}", "Steals per Game: #{@chosen_player.steals}", "Blocks per Game: #{@chosen_player.blocks}", "Field Goal %: #{@chosen_player.fg}", "3 Point %: #{@chosen_player.threept}", "Free Throw %: #{@chosen_player.ft}"
             goodbye
         else

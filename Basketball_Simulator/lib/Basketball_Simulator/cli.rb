@@ -29,17 +29,20 @@ class BasketballSimulator::CLI
         "2. Or would you like to play our basketball game?",
         ""
         input = gets.strip.downcase
-        if input.to_i == 1
+        case input
+        when "1"
             single_player
-        elsif input.to_i == 2
+        when "2"
             game
             goodbye
-        elsif input == "exit"
+        when "exit"
             goodbye
         else
             puts "Please select either 1 or 2 or exit."
             choice
         end
+
+        ## Switch from if statement to case statement
     end
 
     def single_player

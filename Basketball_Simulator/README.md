@@ -1,6 +1,6 @@
 # BasketballSimulator
 
-
+This Ruby Gem provides a CLI to view any NBA Player's statistics.
 
 ## Installation
 
